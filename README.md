@@ -1,5 +1,5 @@
 # Clone o repositório  
-git clone https://github.com/felipetsuchiya/projetoFinalTEES.git)
+git clone https://github.com/felipetsuchiya/projetoFinalTEES.git
 cd projetoFinalTEES  
 
 # Crie e ative o ambiente virtual  
