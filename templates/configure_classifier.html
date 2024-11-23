@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurar KNN e Classificadores</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function showParams() {
+            const model = document.getElementById('model').value;
+            document.querySelectorAll('.params').forEach(param => param.style.display = 'none');
+            document.getElementById(model + '_params').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Configurar KNN e Classificadores</h1>
+        <form action="/configure_knn" method="post" class="border p-4 shadow-sm">
+            <div class="mb-3">
+                <label for="model" class="form-label">Selecione um Classificador:</label>
+                <select id="model" name="model" class="form-select" onchange="showParams()" required>
+                    <option value="KNN">KNN</option>
+                    <option value="Decision Tree">Decision Tree</option>
+                    <option value="Random Forest">Random Forest</option>
+                    <option value="Logistic Regression">Logistic Regression</option>
+                </select>
+            </div>
+            <!-- Parâmetros KNN -->
+            <div id="KNN_params" class="params" style="display: none;">
+                <div class="mb-3">
+                    <label for="n_neighbors" class="form-label">Número de Vizinhos (k):</label>
+                    <input type="number" id="n_neighbors" name="n_neighbors" class="form-control" value="5" min="1">
+                </div>
+                <div class="mb-3">
+                    <label for="metric" class="form-label">Métrica de Distância:</label>
+                    <select id="metric" name="metric" class="form-select">
+                        <option value="minkowski">Minkowski</option>
+                        <option value="euclidean">Euclidiana</option>
+                        <option value="manhattan">Manhattan</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Parâmetros Decision Tree -->
+            <div id="Decision Tree_params" class="params" style="display: none;">
+                <div class="mb-3">
+                    <label for="max_depth" class="form-label">Profundidade Máxima:</label>
+                    <input type="number" id="max_depth" name="max_depth" class="form-control" value="10" min="1">
+                </div>
+                <div class="mb-3">
+                    <label for="criterion" class="form-label">Critério de Divisão:</label>
+                    <select id="criterion" name="criterion" class="form-select">
+                        <option value="gini">Gini</option>
+                        <option value="entropy">Entropia</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Parâmetros Random Forest -->
+            <div id="Random Forest_params" class="params" style="display: none;">
+                <div class="mb-3">
+                    <label for="n_estimators" class="form-label">Número de Estimadores:</label>
+                    <input type="number" id="n_estimators" name="n_estimators" class="form-control" value="100" min="10">
+                </div>
+                <div class="mb-3">
+                    <label for="max_depth_rf" class="form-label">Profundidade Máxima:</label>
+                    <input type="number" id="max_depth_rf" name="max_depth_rf" class="form-control" value="10" min="1">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Treinar e Avaliar</button>
+        </form>
+    </div>
+</body>
+</html>

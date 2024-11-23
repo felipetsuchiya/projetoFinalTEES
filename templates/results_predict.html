@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Predição</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Resultados do Modelo: {{ model_type }}</h1>
+        <ul class="list-group">
+            <li class="list-group-item">Acurácia: {{ metrics['Acurácia'] }}</li>
+            <li class="list-group-item">Precisão: {{ metrics['Precisão'] }}</li>
+            <li class="list-group-item">Recall: {{ metrics['Recall'] }}</li>
+            <li class="list-group-item">F1-Score: {{ metrics['F1-Score'] }}</li>
+        </ul>
+        <div class="mt-4">
+            <h3>Matriz de Confusão</h3>
+            <img src="{{ url_for('static', filename='images/conf_matrix.png') }}" alt="Matriz de Confusão" class="img-fluid">
+        </div>
+        <a href="/" class="btn btn-secondary w-100 mt-4">Voltar para Início</a>
+    </div>
+</body>
+</html>
