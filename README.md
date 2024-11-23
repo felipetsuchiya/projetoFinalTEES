@@ -57,6 +57,6 @@ Certifique-se de ter instalado:
 ### **2. Instalação**
 Clone o repositório e instale as dependências:
 ```bash
-git clone https://github.com/seu-repositorio/projeto-predicao-classificadores.git
+git clone https://github.com/felipetsuchiya/projetoFinalTEES.git
 cd projeto-predicao-classificadores
 pip install -r requirements.txt
